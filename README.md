@@ -3,7 +3,7 @@
 
 ## Project purpose
 Presenting the worlds easiest Day Flow Scheduler.
-It is intended to be track your corrent hour by colorcoding the 
+It is intended to track your current hour by color-coding the 
 past - gray, 
 present - maroon, 
 and future hours in green. 
@@ -14,7 +14,7 @@ be saved by clicking the orange target button.
 
 ## Usage
 
-Thhis simple hour tracker helps you to know whcih hour you are currently in and what task is assigned to this hour. 
+This simple hour tracker helps you to know which hour you are currently in and what task is assigned to this hour. 
 
 ## Results
 
@@ -29,3 +29,5 @@ Each hour is designed to see the time, task assignment, and save button for the 
 Starter Code provided by:
 - - -
 © 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+
+
