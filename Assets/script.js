@@ -5,53 +5,44 @@
 
 $(document).ready(function () {
 
-// today showd dotays date:
+// Added Current day with Dayjs 
   var today = dayjs();
 
   $('#1a').text(today.format('MMM D, YYYY'));
   console.log(today);
 
   
-// added current time
+// added current time with Dayjs
   var today = new Date();
   var time = today.getHours();
   console.log(time);
 
+ 
 
-
-
-  // var row = "past";
-  var description = document.getElementById("description");
-  var savebtn = document.getElementById("saveBtn");
-
-
-
-      // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-
-
-
+  // Adding a listener for click events on the save button.
     $(".saveBtn").each(function() {
       $(this).on("click", function(){
+        // looks into the siblings part text area to save the value to local storage
+        // plan in this case is the variable for the text area
         var plan =  $(this).siblings('textarea').val();
+
+        // tells the timeblock  which is a parent, to tell the parent save the atribute value of the id "hour-7" to save to local storage
         var timeBlockParent = $(this).parent().attr('id');
         localStorage.setItem(timeBlockParent, plan);
       })
     })
 
 
+   
+
+    
+
 
    
-  // / TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-colorCode();
+  // TODO: Add code to apply the past, present, or future class to each time
+  // block by comparing the id to the current hour.
+
+  colorCode();
 
   function colorCode() {
       $(".time-block").each(function () {
@@ -73,6 +64,15 @@ colorCode();
         }
       })
     }
+    
+   
+
+    $.each(localStorage, function(key, value){
+      $(`#${key}`).children('textarea').val(value);
+    });
+
+
+
     });
   // });
 
