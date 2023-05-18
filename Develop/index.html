@@ -1,79 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Work Day Scheduler</title>
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+
+  <!-- bootstrap reference -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <!-- Font awesome link used for icons. Switched Save icon to Thumbs-up-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <!-- link to use google fonts api. Switched Fira Sans to   -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <title>Day Work Flow</title>
+
+</head>
+
+<body>
+
+  <!-- Head navigation bar  -->
+
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+          <h5 class="text-light h4">Collapsed content</h5>
+          <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div>
+
+        </div>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <div id="navbar">
     <header class="p-5 mb-4">
-      <h1 class="display-3">Work Day Scheduler</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
-      <p id="currentDay" class="lead"></p>
+      <h1 class="display-3">Day Work Flow</h1>
+      <section>
+
+      <p class="lead">The worlds easiest schedule to keep you organized</p>
+       
+        <p id= "1a" id="3a" class="answer" style='font-size:36px'></p>
+      </p>
+      <p id="currentDay" class="lead" ></p>
+    </section>
+    
     </header>
-    <div class="container-fluid px-5">
+    <div class="container">
       <!-- Use class for "past", "present", and "future" to apply styles to the
         time-block divs accordingly. The javascript will need to do this by
         adding/removing these classes on each div by comparing the hour in the
-        id to the current hour. The html provided below is meant to be an example
-        demonstrating how the css provided can be leveraged to create the
-        desired layout and colors. The html below should be removed or updated
-        in the finished product. Remember to delete this comment once the
-        code is implemented.
+        id to the current hour. 
         -->
 
-      <!-- Example of a past time block. The "past" class adds a gray background color. -->
-      <div id="hour-9" class="row time-block past">
+      <div id="hour-7" class="row time-block">
+        <div class="col-2 col-md-1 hour text-center py-3">7AM</div>
+        <textarea class="col-8 col-md-10 description past present future" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
+        </button>
+      </div>
+
+      <div id="hour-8" class="row time-block ">
+        <div class="col-2 col-md-1 hour text-center py-3">8AM</div>
+        <textarea class="col-8 col-md-10 description past present future" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
+        </button>
+      </div>
+
+      <div id="hour-9" class="row time-block ">
         <div class="col-2 col-md-1 hour text-center py-3">9AM</div>
-        <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+        <textarea class="col-8 col-md-10 description past present future" rows="3"> </textarea>
         <button class="btn saveBtn col-2 col-md-1" aria-label="save">
-          <i class="fas fa-save" aria-hidden="true"></i>
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
         </button>
       </div>
 
-      <!-- Example of a present time block. The "present" class adds a red background color. -->
-      <div id="hour-10" class="row time-block present">
+      <div id="hour-10" class="row time-block ">
         <div class="col-2 col-md-1 hour text-center py-3">10AM</div>
-        <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+        <textarea class="col-8 col-md-10 description past present future" rows="3"> </textarea>
         <button class="btn saveBtn col-2 col-md-1" aria-label="save">
-          <i class="fas fa-save" aria-hidden="true"></i>
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
         </button>
       </div>
 
-      <!-- Example of a future time block. The "future" class adds a green background color. -->
-      <div id="hour-11" class="row time-block future">
+    
+      <div id="hour-11" class="row time-block ">
         <div class="col-2 col-md-1 hour text-center py-3">11AM</div>
-        <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+        <textarea class="col-8 col-md-10 description past present future" rows="3"> </textarea>
         <button class="btn saveBtn col-2 col-md-1" aria-label="save">
-          <i class="fas fa-save" aria-hidden="true"></i>
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
         </button>
       </div>
+
+      <div id="hour-12" class="row time-block ">
+        <div class="col-2 col-md-1 hour text-center py-3">10AM</div>
+        <textarea class="col-8 col-md-10 description past present future" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
+        </button>
+      </div>
+
+      <div id="hour-13" class="row time-block ">
+        <div class="col-2 col-md-1 hour text-center py-3">1PM</div>
+        <textarea class="col-8 col-md-10 description past present future" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
+        </button>
+      </div>
+
+      <div id="hour-14" class="row time-block ">
+        <div class="col-2 col-md-1 hour text-center py-3">2PM</div>
+        <textarea class="col-8 col-md-10 description past present future" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
+        </button>
+      </div>
+
+      <div id="hour-15" class="row time-block ">
+        <div class="col-2 col-md-1 hour text-center py-3">3PM</div>
+        <textarea class="col-8 col-md-10 description past present future" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
+        </button>
+      </div>
+
+      <div id="hour-16" class="row time-block ">
+        <div class="col-2 col-md-1 hour text-center py-3">4PM</div>
+        <textarea class="col-8 col-md-10 description past present future" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
+        </button>
+      </div>
+
+      <div id="hour-17" class="row time-block ">
+        <div class="col-2 col-md-1 hour text-center py-3">5PM</div>
+        <textarea class="col-8 col-md-10 description past present future" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
+        </button>
+      </div>
+
+      <div id="hour-18" class="row time-block">
+        <div class="col-2 col-md-1 hour text-center py-3">6PM</div>
+        <textarea class="col-8 col-md-10 description past present future" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
+        </button>
+      </div>
+
+      <div id="hour-19" class="row time-block">
+        <div class="col-2 col-md-1 hour text-center py-3">7PM</div>
+        <textarea class="col-8 col-md-10 description past present future" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
+        </button>
+      </div>
+
+      <div id="hour-20" class="row time-block" >
+        <div class="col-2 col-md-1 hour text-center py-3" >8PM</div>
+        <textarea class="col-8 col-md-10 description past present future" rows="3" id="accordion"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save" >
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
+        </button>
+      </div>
+
+      <div id="hour-21" class="row time-block" >
+        <div class="col-2 col-md-1 hour text-center py-3" >9PM</div>
+        <textarea class="col-8 col-md-10 description past present future" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
+        </button>
+      </div>
+
+      <div id="hour-22" class="row time-block" >
+        <div class="col-2 col-md-1 hour text-center py-3">10PM</div>
+        <textarea class="col-8 col-md-10 description past present future" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
+        </button>
+      </div>
+
+      <div id="hour-23" class="row time-block" >
+        <div class="col-2 col-md-1 hour text-center py-3" >11PM</div>
+        <textarea class="col-8 col-md-10 description past present future " rows="3"  > 
+        </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class='fas fa-bullseye' style='font-size:36px' aria-hidden="true"> </i>
+        </button>
+      </div>
+
+
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"> &copy;Planning Wise Industries Inc. 2023 </a>
+        </div>
+      </nav>
     </div>
+
+
+
+   
+   
+    
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-    crossorigin="anonymous"></script>
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
 
-    <script src="script.js"></script>
-  </body>
+
+      <script src="./script.js"></script>
+
+</body>
+
 </html>
